@@ -1,0 +1,18 @@
+import filter_accounts
+
+
+
+var accountsBase = [Account]()
+        var filtersBase = [Filter]()
+        accountsBase.append(Account(prodCode: "1000", subProdCode: "1"))
+        accountsBase.append(Account(prodCode: "1001", subProdCode: "1"))
+        accountsBase.append(Account(prodCode: "1002", subProdCode: "2"))
+        accountsBase.append(Account(prodCode: "1000", subProdCode: "2"))
+        accountsBase.append(Account(prodCode: "1003", subProdCode: "2"))
+        accountsBase.append(Account(prodCode: "1004", subProdCode: "1"))
+        
+        filtersBase.append(Filter(prodCodes: ["1000","1001"], subProdCodes: ["1","5"]))
+        filtersBase.append(Filter(prodCodes: ["1002","1010"], subProdCodes: ["2","10"]))
+        let accountsFiltered:[String] =  CommonKt.filterAccounts(accounts: accountsBase, filters: filtersBase);
+        
+        print(accountsFiltered)
